@@ -32,12 +32,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Update values.yaml
-         run: |
-          cd helm
-          sed -i 's|APP_VERSION:.*|APP_VERSION: '${{ github.sha }}'|' values.yaml 
-          git config --global user.name 'devopshint'
-          git config --global user.email 'devopshint@gmail.com'
-          git add values.yaml
-          git commit -m "Update values.yaml"
-          git push
+     
