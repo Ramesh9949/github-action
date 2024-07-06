@@ -24,7 +24,7 @@ jobs:
           password: ${{ env.DOCKERHUB_KEY }}
 
       - name: Build Docker image
-        run: docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+        run: docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }} :<tag>.
 
       - name: Push Docker image
         run: docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
